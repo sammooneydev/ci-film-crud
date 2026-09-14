@@ -8,6 +8,11 @@
                         Home
                     </a>
                 </li>
+                <li>
+                    <a href="<?= base_url('login')?>">
+                        Login
+                    </a>
+                </li>
             </ul>
         </div>
 

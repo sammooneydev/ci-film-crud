@@ -6,7 +6,7 @@
     <?= view('templates/header')?>
         <body>
             <div class="main-content">
-                <p>this is the home page!</p>
+                
             </div>
         </body>
     <?= view('templates/footer')?>

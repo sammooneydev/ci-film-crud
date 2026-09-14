@@ -7,9 +7,8 @@ use App\Controllers\Pages;
 
 $routes->get('/', 'home');
 
-
-
-
+//login routes
+$routes->get('login','login');
 
 
 $routes->get('pages', [Pages::class, 'index']);
