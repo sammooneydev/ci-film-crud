@@ -1,9 +1,15 @@
-<!doctype html>
-<html>
-<head>
-    <title><?= esc($title)?></title>
-</head>
+<header>
+    <div class="header-container">
 
-<body>
+        <div class="navigation">
+            <ul class="nav-list">
+                <li>
+                    <a href="<?= base_url('/') ?>">
+                        Home
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <h1><?= esc($title)?></h1>
+    </div>
+</header>
