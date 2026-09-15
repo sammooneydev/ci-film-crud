@@ -11,6 +11,6 @@ Class Login extends BaseController
 
     public function login()
     {
-        
+        dd('form worked');
     }
 }
