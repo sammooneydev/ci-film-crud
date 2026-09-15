@@ -27,6 +27,9 @@ Class Login extends BaseController
             return redirect()->back()->with('error','incorrect username or password');
         }
 
+        //regenerating session to avoid old sessions interfering
+        session()->regenerate();
+
         session()->set([
             'user_id' => $user['user_id'],
             'username'=> $user['username'],
