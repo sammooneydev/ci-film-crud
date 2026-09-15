@@ -1,18 +1,19 @@
 <?php
 
 use CodeIgniter\Router\RouteCollection;
-use App\Controllers\Pages;
+use App\Controllers\Home;
 use App\Controllers\Login;
 
+use App\Controllers\Pages;
 /** @var RouteCollection $routes */
 
-$routes->get('/', 'home');
+//home page routes
+$routes->get('/', [Home::class,'index']);
 
 //login routes
-$routes->get('login','login');
+$routes->get('login',[Login::class,'index']);
 $routes->post('login',[Login::class,'login']);
 
-
-$routes->get('pages', [Pages::class, 'index']);
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);
+
