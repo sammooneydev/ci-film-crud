@@ -6,9 +6,9 @@
     <?= view('templates/header')?>
         <body>
             <div class="main-content">
-                <h2>Login:</h2>
-                <br>
-                <form method='post' action='<?= base_url('login') ?>'>
+
+                <form class="login" method='post' action='<?= base_url('login') ?>'>
+                    <h2>Login</h2>
                     <?= csrf_field() ?>
 
                     <label for="username">Username</label>

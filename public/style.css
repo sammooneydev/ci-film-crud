@@ -32,9 +32,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:auto;
     height: 80vh;  
     background-color:#2B2D42;
     color:white;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin:100px auto;
+  align-items: center;
+}
+
+.login h2 {
+  margin-bottom: 20px;
+}
+
+.login label {
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+.login input {
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login button {
+  margin-top: 5px;
 }
 
 /*footer styling*/
