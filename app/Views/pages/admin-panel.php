@@ -20,8 +20,8 @@
 
                 <br><br>
 
-                <label for="director">Director</label>
-                <input type="text" name="director" id="director" required>
+                <label for="director_name">Director</label>
+                <input type="text" name="director_name" id="director_name" required>
 
                 <br><br>
 

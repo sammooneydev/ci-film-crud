@@ -34,7 +34,12 @@ class Admin extends BaseController
         //getting values entered on form
         $film_name = $this->request->getPost('film_name');
         $film_desc = $this->request->getPost('film_desc');
-        $director_name = $this->request->getPost('director');
+        $director_name = $this->request->getPost('director_name');
+
+        //validating that there are actual values
+        if (empty($film_name) || empty($director_name)) {
+            return redirect()->to(base_url('admin-panel'))->with('error', 'Film name and director are required.');
+        }
 
         //establish database connection for transaction
         $db = \Config\Database::connect();
@@ -49,12 +54,22 @@ class Admin extends BaseController
         //getting film id from recently added film 
         $film_id = $film_model->getInsertID();
 
-        $director_model->insert([
-            'director_name'=> $director_name
-        ]);
+        //check if the director already exists
+        $director = $director_model
+        ->where('director_name', $director_name)
+        ->first();
 
-        //getting director id from recently added director
-        $director_id = $director_model->getInsertID();
+        if ($director) {
+            //director alredy exists
+            $director_id = $director['director_id'];
+        } else {
+            //director doesn't exist
+            $director_model->insert([
+                'director_name' => $director_name
+            ]);
+
+            $director_id = $director_model->getInsertID();
+        }
 
         $director_films_model->insert([
             'film_id' => $film_id,
