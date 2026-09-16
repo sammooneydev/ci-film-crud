@@ -3,6 +3,7 @@ $logged_in = session()->get('logged_in');
 
 if (empty($logged_in) || !$logged_in) {
     $logged_in = false;
+    $is_admin = 0;
 }
 else {
     $username = session()->get('username');
@@ -20,6 +21,13 @@ else {
                         Home
                     </a>
                 </li>
+                <?php if($is_admin == 1):?>
+                <li>
+                    <a href="<?= base_url('admin-panel')?>">
+                        Admin panel
+                    </a>
+                </li>
+                <?php endif;?>
                 <?php if(!$logged_in):?>
                 <li>
                     <a href="<?= base_url('login')?>">
@@ -29,7 +37,7 @@ else {
                 <?php elseif($logged_in):?>
                     <li>
                         <a href="<?= base_url('profile')?>">
-                            <?php echo($username);?>
+                            <?php echo($username . ' Profile');?>
                         </a>
                     </li>
                     <li>

@@ -4,6 +4,7 @@ use CodeIgniter\Router\RouteCollection;
 use App\Controllers\Home;
 use App\Controllers\Login;
 use App\Controllers\Logout;
+use App\Controllers\Admin;
 
 use App\Controllers\Pages;
 /** @var RouteCollection $routes */
@@ -17,6 +18,9 @@ $routes->post('login',[Login::class,'login']);
 
 //logout routes
 $routes->get('logout', [Logout::class,'logout']);
+
+//admin routes
+$routes->get('admin-panel', [Admin::class, 'index']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);
