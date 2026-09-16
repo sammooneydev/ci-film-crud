@@ -21,6 +21,7 @@ $routes->get('logout', [Logout::class,'logout']);
 
 //admin routes
 $routes->get('admin-panel', [Admin::class, 'index']);
+$routes->post('admin/create-film', [Admin::class, 'createFilm']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);
