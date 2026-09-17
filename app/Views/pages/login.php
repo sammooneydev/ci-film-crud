@@ -19,6 +19,19 @@
 
                     <button type="submit">Login</button>
                 </form>
+
+                <form class="login" method="post" action="<?= base_url('create-account')?>">
+                    <h2>Create Account</h2>
+                    <?= csrf_field() ?>
+
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+
+                    <button type="submit">Create Account</button>
+                </form>
             </div>
         </body>
     <?= view('templates/footer')?>
