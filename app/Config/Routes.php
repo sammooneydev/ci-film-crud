@@ -6,6 +6,7 @@ use App\Controllers\Login;
 use App\Controllers\Logout;
 use App\Controllers\CreateAccount;
 use App\Controllers\Admin;
+use App\Controllers\Profile;
 
 use App\Controllers\Pages;
 /** @var RouteCollection $routes */
@@ -26,6 +27,9 @@ $routes->get('logout', [Logout::class,'logout']);
 //admin routes
 $routes->get('admin-panel', [Admin::class, 'index']);
 $routes->post('admin/create-film', [Admin::class, 'createFilm']);
+
+//profile page routes
+$routes->get('profile', [Profile::class, 'index']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);

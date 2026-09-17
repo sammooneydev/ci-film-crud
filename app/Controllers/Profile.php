@@ -6,6 +6,6 @@ class Profile extends BaseController
 {
     public function index()
     {
-        return view("");
+        return view("pages/profile");
     }
 }
