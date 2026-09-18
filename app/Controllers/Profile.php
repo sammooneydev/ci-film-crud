@@ -11,7 +11,22 @@ class Profile extends BaseController
         if(session()->get('logged_in') != true) {
             return redirect()->to(base_url('login'))->with('error','no user is logged in');
         }
-        return view("pages/profile");
+
+        $user_id = session()->get('user_id');
+
+        //connecting to database
+        $db = \Config\Database::connect();
+
+        //performing database query to get all of the logged in user's reviews
+        $reviews = $db->table('diary_entry')
+        ->select('diary_entry.*, film.film_name')
+        ->join('film', 'film.film_id = diary_entry.film_id')
+        ->where('diary_entry.user_id', $user_id)
+        ->orderBy('diary_entry.date_posted', 'DESC')
+        ->get()
+        ->getResultArray();
+
+        return view("pages/profile", ['reviews' => $reviews]);
     }
 
     public function update()
