@@ -165,6 +165,46 @@
     cursor: pointer;
 }
 
+/*review styling*/
+.reviews {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.reviews h2 {
+    text-align: center;
+}
+
+.review-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.review-card {
+    flex: 0 0 300px;
+    background-color: #8D99AE;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.review-card h3 {
+    margin-top: 0;
+}
+
+.review-score {
+    font-weight: bold;
+}
+
+.review-date {
+    font-size: 0.8em;
+}
+
+.review-text {
+    line-height: 1.5;
+}
 
 /*footer styling*/
 footer {

@@ -63,6 +63,44 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="reviews">
+
+                    <h2>Your reviews</h2>
+
+                    <?php if (empty($reviews)): ?>
+
+                        <p>You haven't logged any films yet.</p>
+
+                    <?php else: ?>
+
+                        <div class="review-list">
+
+                            <?php foreach ($reviews as $review): ?>
+
+                                <div class="review-card">
+
+                                    <h3><?= esc($review['film_name']) ?></h3>
+
+                                    <?php if ($review['score'] !== null): ?>
+
+                                        <p class="review-score"><?= esc($review['score']) ?>/10</p>
+
+                                    <?php endif; ?>
+
+                                    <p class="review-date"><?= date('d/m/Y H:i', strtotime($review['date_posted'])) ?></p>
+
+                                    <p class="review-text"><?= nl2br(esc($review['entry_text'])) ?></p>
+
+                                </div>
+
+                            <?php endforeach; ?>
+
+                        </div>
+
+                    <?php endif; ?>
+
+                </div>
             </div>
         </body>
     <?= view('templates/footer')?>
