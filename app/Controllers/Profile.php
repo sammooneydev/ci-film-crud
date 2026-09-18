@@ -8,6 +8,9 @@ class Profile extends BaseController
 {
     public function index()
     {
+        if(session()->get('logged_in') != true) {
+            return redirect()->to(base_url('login'))->with('error','no user is logged in');
+        }
         return view("pages/profile");
     }
 
