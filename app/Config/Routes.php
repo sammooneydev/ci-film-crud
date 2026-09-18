@@ -7,6 +7,7 @@ use App\Controllers\Logout;
 use App\Controllers\CreateAccount;
 use App\Controllers\Admin;
 use App\Controllers\Profile;
+use App\Controllers\Log;
 
 use App\Controllers\Pages;
 /** @var RouteCollection $routes */
@@ -32,6 +33,9 @@ $routes->post('admin/create-film', [Admin::class, 'createFilm']);
 $routes->get('profile', [Profile::class, 'index']);
 $routes->post('profile/update', [Profile::class,'update']);
 $routes->post('profile/delete', [Profile::class,'delete']);
+
+//log page routes
+$routes->get('log', [Log::class, 'index']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);

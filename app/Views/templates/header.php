@@ -36,6 +36,11 @@ else {
                 </li>
                 <?php elseif($logged_in):?>
                     <li>
+                        <a href="<?= base_url('log')?>">
+                            Log film
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?= base_url('profile')?>">
                             <?php echo($username . ' Profile');?>
                         </a>
