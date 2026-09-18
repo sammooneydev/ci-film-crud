@@ -30,6 +30,8 @@ $routes->post('admin/create-film', [Admin::class, 'createFilm']);
 
 //profile page routes
 $routes->get('profile', [Profile::class, 'index']);
+$routes->post('profile/update', [Profile::class,'update']);
+$routes->post('profile/delete', [Profile::class,'delete']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);

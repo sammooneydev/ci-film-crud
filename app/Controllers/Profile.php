@@ -72,4 +72,22 @@ class Profile extends BaseController
 
         return redirect()->to('profile')->with('success','your profile has been updated');
     }
+
+    public function delete()
+    {
+        $user_id = session()->get('user_id');
+
+        if(!$user_id) {
+            return redirect()->to('login')->with('error','no user logged in');
+        }
+
+        $user_model = new UserModel();
+
+        $user_model->delete($user_id);
+
+        //destroying session after deleting user
+        session()->destroy();
+
+        return redirect()->to(base_url('home'))->with('success','your account has been successfully deleted');
+    }
 }
