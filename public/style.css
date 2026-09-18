@@ -109,6 +109,13 @@
   margin-top: 10px;
 }
 
+.delete-account {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top:1px solid #8D99AE;
+}
+
+/*flash data popups*/
 .success {
   background-color: #4CAF50;
   color:white;
@@ -121,11 +128,43 @@
   padding: 10px;
 }
 
-.delete-account {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top:1px solid #8D99AE;
+/*log page*/
+.log-content {
+    width: 500px;
+    max-width: 90%;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+.log-content h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.log-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-content label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.log-content input,
+.log-content select,
+.log-content textarea {
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.log-content button {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
 
 /*footer styling*/
 footer {

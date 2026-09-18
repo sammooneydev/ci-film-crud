@@ -36,6 +36,7 @@ $routes->post('profile/delete', [Profile::class,'delete']);
 
 //log page routes
 $routes->get('log', [Log::class, 'index']);
+$routes->post('log/create', [Log::class,'create']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);
