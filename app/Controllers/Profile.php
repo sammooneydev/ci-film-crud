@@ -20,7 +20,7 @@ class Profile extends BaseController
 
         //making sure user_id is actually there
         if(!$user_id) {
-            return redirect()->to('login')->with('error','no user is logged in');
+            return redirect()->to(base_url('login'))->with('error','no user is logged in');
         }
 
         $username = $this->request->getPost('username');
@@ -34,7 +34,7 @@ class Profile extends BaseController
 
         //redirecting user back to login (which contains account creation) if user is not stored in database
         if(!$user) {
-            return redirect()->to('login')->with('error','user does not exist');
+            return redirect()->to(base_url('login'))->with('error','user does not exist');
         }
 
         //checking if new username is already in use
@@ -43,7 +43,7 @@ class Profile extends BaseController
             $existing_user = $user_model ->where('username', $username)->first();
 
             if($existing_user) {
-                return redirect()->back()->withInput()->with('error','that username is already taken');
+                return redirect()->to(base_url('profile'))->withInput()->with('error','that username is already taken');
             }
         }
 
@@ -55,11 +55,11 @@ class Profile extends BaseController
         if(!empty($new_password)) {
 
             if(empty($current_password)) {
-                return redirect()->back()->withInput()->with('error','you must enter your current password to change your password');
+                return redirect()->to(base_url('profile'))->withInput()->with('error','you must enter your current password to change your password');
             }
 
             if(!password_verify($current_password, $user['password_hash'])) {
-                return redirect()->back()->withInput()->with('error','your current password is incorrect');
+                return redirect()->to(base_url('profile'))->withInput()->with('error','your current password is incorrect');
             }
 
             $data['password_hash'] = password_hash($new_password, PASSWORD_BCRYPT);
@@ -70,7 +70,7 @@ class Profile extends BaseController
         //also updating session username
         session()->set('username', $username);
 
-        return redirect()->to('profile')->with('success','your profile has been updated');
+        return redirect()->to(base_url('profile'))->with('success','your profile has been updated');
     }
 
     public function delete()
@@ -78,7 +78,7 @@ class Profile extends BaseController
         $user_id = session()->get('user_id');
 
         if(!$user_id) {
-            return redirect()->to('login')->with('error','no user logged in');
+            return redirect()->to(base_url('login'))->with('error','no user logged in');
         }
 
         $user_model = new UserModel();
