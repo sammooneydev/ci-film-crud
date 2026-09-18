@@ -24,7 +24,7 @@ Class Login extends BaseController
 
         //verifying that user exists and that the password matches the stored hash
         if (!$user || !password_verify($password, $user['password_hash'])) {
-            return redirect()->back()->with('error','incorrect username or password');
+            return redirect()->to(base_url('login'))->with('error','incorrect username or password');
         }
 
         //regenerating session to avoid old sessions interfering
