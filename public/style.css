@@ -38,6 +38,7 @@
     color:white;
 }
 
+/*login styling*/
 .login {
   display: flex;
   flex-direction: column;
@@ -63,6 +64,67 @@
 
 .login button {
   margin-top: 5px;
+}
+
+/*profile styling*/
+.profile {
+  font-family: 'Courier New', Courier, monospace;
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+  margin:auto;
+}
+
+.profile h1 {
+  margin-bottom:10px;
+  text-align: center;
+}
+
+.profile h2 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile p {
+  text-align: center;
+}
+
+.profile form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile label {
+  margin-bottom: 5px;
+}
+
+.profile input {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.profile button {
+  margin-top: 10px;
+}
+
+.success {
+  background-color: #4CAF50;
+  color:white;
+  padding:10px;
+}
+
+.error {
+  background-color: #D32F2F;
+  color:white;
+  padding: 10px;
+}
+
+.delete-account {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top:1px solid #8D99AE;
 }
 
 /*footer styling*/

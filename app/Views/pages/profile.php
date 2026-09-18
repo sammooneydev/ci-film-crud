@@ -56,7 +56,7 @@
                         <form action="profile/delete" method="post" onsubmit="return confirm('Are you sure that you want to permanently delete your account? This cannot be undone.');">
                             <?= csrf_field()?>
 
-                            <button type="submit" class="delete-button">
+                            <button type="submit">
                                 Delete account
                             </button>
 
