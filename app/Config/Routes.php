@@ -8,6 +8,7 @@ use App\Controllers\CreateAccount;
 use App\Controllers\Admin;
 use App\Controllers\Profile;
 use App\Controllers\Log;
+use App\Controllers\APITest;
 
 use App\Controllers\Pages;
 /** @var RouteCollection $routes */
@@ -37,6 +38,9 @@ $routes->post('profile/delete', [Profile::class,'delete']);
 //log page routes
 $routes->get('log', [Log::class, 'index']);
 $routes->post('log/create', [Log::class,'create']);
+
+//api testing routes
+$routes->get('api-test', [APITest::class,'index']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);
