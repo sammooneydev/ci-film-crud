@@ -101,16 +101,6 @@ class ManualLrs
         $name = 'A learner';
         $email = 'learner@sssc.uk.com';
 
-        // If anonymity is NOT forced, try to pull the logged-in user
-        if (!$this->isForcingAnonStats()) {
-            $userId = auth()->id();
-            if ($userId) {
-                $profile = (new \App\Models\UserProfileModel())->find($userId);
-                $name = $profile['fullname'] ?? auth()->user()->username ?? 'A learner';
-                $email = auth()->user()->email ?? 'learner@sssc.uk.com';
-            }
-        }
-
         return new Actor(name: $name, mbox: $email);
     }
 }
