@@ -26,6 +26,7 @@ class ManualLrs
             'auth' => [$this->config->authUser, $this->config->authPass],
             'headers' => $this->getHeaders(),
             'http_errors' => false,
+            'verify' => false,
         ]);
 
         $this->isInitialized = true;
