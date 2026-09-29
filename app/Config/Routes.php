@@ -42,6 +42,7 @@ $routes->post('log/create', [Log::class,'create']);
 //api testing routes
 $routes->get('api-test', [APITest::class,'index']);
 $routes->post('api-test/prepared', [APITest::class,'prePrepared']);
+$routes->post('statement-builder', [APITest::class,'prepareStatement']);
 
 //"catch-all" route to handle non existent pages
 $routes->get('(:segment)', [Pages::class, 'view']);

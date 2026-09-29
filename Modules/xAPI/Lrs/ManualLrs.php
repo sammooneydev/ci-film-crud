@@ -75,27 +75,27 @@ class ManualLrs
     }
 
     // NOT FINISHED YET!
-    public function queryAndParseStatements(array $queryParameters): ?array
-    {
-        $response = $this->queryStatements($queryParameters);
+    // public function queryAndParseStatements(array $queryParameters): ?array
+    // {
+    //     $response = $this->queryStatements($queryParameters);
 
-        if (!$response || $response->getStatusCode() !== 200) {
-            return null;
-        }
+    //     if (!$response || $response->getStatusCode() !== 200) {
+    //         return null;
+    //     }
 
-        $body = json_decode($response->getBody(), true);
+    //     $body = json_decode($response->getBody(), true);
 
-        // Standard LRS responses from Learning Locker return statements inside a 'statements' key
-        $statementsData = $body['statements'] ?? $body;
+    //     // Standard LRS responses from Learning Locker return statements inside a 'statements' key
+    //     $statementsData = $body['statements'] ?? $body;
 
-        if (!is_array($statementsData)) {
-            return null;
-        }
+    //     if (!is_array($statementsData)) {
+    //         return null;
+    //     }
 
-        return array_map(function ($stmtData) {
-            return Statement::fromArray($stmtData);
-        }, $statementsData);
-    }
+    //     return array_map(function ($stmtData) {
+    //         return Statement::fromArray($stmtData);
+    //     }, $statementsData);
+    // }
 
     public function getActorDetails(): Actor
     {

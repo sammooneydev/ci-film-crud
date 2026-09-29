@@ -51,4 +51,12 @@ class APITest extends BaseController
 
         return redirect()->to(base_url('api-test'))->with('error', 'Failed to send xAPI statement.');
     }
+
+    public function prepareStatement()
+    {
+        //declaring $lrs variable for use in statement
+        $lrs = new ManualLrs();
+
+
+    }
 }
