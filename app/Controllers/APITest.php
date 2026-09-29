@@ -57,6 +57,6 @@ class APITest extends BaseController
         //declaring $lrs variable for use in statement
         $lrs = new ManualLrs();
 
-
+        
     }
 }
