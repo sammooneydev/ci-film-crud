@@ -11,8 +11,8 @@
                     <h2>Login</h2>
                     <?= csrf_field() ?>
 
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" required>
+                    <label for="username">Username or email</label>
+                    <input type="text" name="login" id="login" required>
 
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" required>
@@ -26,6 +26,9 @@
 
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
 
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" required>

@@ -27,14 +27,16 @@
                         </p>
                     <?php endif;?>
 
-                    <form action="profile/update" method="post">
+                    <form action="<?= base_url('profile/update')?>" method="post">
                         <?= csrf_field()?>
 
                         <h2>Edit profile</h2>
 
                         <label for="username">Username</label>
-
                         <input type="text" id="username" name="username" value="<?= esc(session()->get('username'))?>" required maxlength="200">
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="<?= esc(session()->get('email'))?>" required maxlength="255" >
 
                         <h2>Change password</h2>
 
@@ -53,7 +55,7 @@
 
                         <p>This will permanently delete your account.</p>
 
-                        <form action="profile/delete" method="post" onsubmit="return confirm('Are you sure that you want to permanently delete your account? This cannot be undone.');">
+                        <form action="<?= base_url('profile/delete')?>" method="post" onsubmit="return confirm('Are you sure that you want to permanently delete your account? This cannot be undone.');">
                             <?= csrf_field()?>
 
                             <button type="submit">
