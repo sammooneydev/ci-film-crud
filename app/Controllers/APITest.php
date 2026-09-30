@@ -65,7 +65,12 @@ class APITest extends BaseController
             $username = session()->get('username');
         }
 
-        $email = $this->request->getPost('email');
+        if (!session()->get('email')) {
+            $email = $this->request->getPost('email');
+        }
+        else {
+            $email = session()->get('email');
+        }
 
         $selected_verb = $this->request->getPost('verb');
 

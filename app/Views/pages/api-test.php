@@ -51,9 +51,11 @@
                             <label for="username">Enter username</label>
                             <input name="username" type="text" id="username" required>
                         <?php endif ?>
-
-                        <label for="email">Enter email address</label>
-                        <input name="email" type="email" id="email" required>
+                        
+                        <?php if(!session()->get('email')): ?>
+                            <label for="email">Enter email address</label>
+                            <input name="email" type="email" id="email" required>
+                        <?php endif ?>
 
                         <label for="verb">Select Verb</label>
                         <input name="verb" type="search" id="verb" list="verb-options" required>
