@@ -18,7 +18,7 @@
             <?php endif; ?>
 
 
-            <form action="/log/create" method="post">
+            <form id="film-log-form" action="<?= base_url('log/create')?>" method="post">
 
                 <?= csrf_field() ?>
 
@@ -51,6 +51,9 @@
             </form>
         </div>
     </div>
+
+    <script src="<?= base_url('js/log.js') ?>"></script>
+    
 </body>
 <?= view('templates/footer') ?>
 </html>
