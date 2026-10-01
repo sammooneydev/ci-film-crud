@@ -39,6 +39,7 @@ class Profile extends BaseController
         }
 
         $username = $this->request->getPost('username');
+        $email = $this->request->getPost('email');
         $current_password = $this->request->getPost('current_password');
         $new_password = $this->request->getPost('new_password');
 
@@ -55,15 +56,26 @@ class Profile extends BaseController
         //checking if new username is already in use
         if($username !== $user['username']) {
 
-            $existing_user = $user_model ->where('username', $username)->first();
+            $existing_user = $user_model->where('username', $username)->first();
 
             if($existing_user) {
                 return redirect()->to(base_url('profile'))->withInput()->with('error','that username is already taken');
             }
         }
 
+        //checking if new email is already in use 
+        if ($email !== $user['email']) { 
+            
+            $existing_user = $user_model->where('email', $email)->first(); 
+            
+            if ($existing_user) { 
+                return redirect() ->to(base_url('profile')) ->withInput() ->with('error', 'that email is already in use'); 
+            } 
+        }
+
         $data = [
-            'username' => $username
+            'username' => $username,
+            'email' => $email
         ];
 
         //if a new password has been entered, that will be verified first along with their original password
@@ -83,7 +95,10 @@ class Profile extends BaseController
         $user_model->update($user_id, $data);
 
         //also updating session username
-        session()->set('username', $username);
+        session()->set([
+            'username' => $username,
+            'email'=> $email
+        ]);
 
         return redirect()->to(base_url('profile'))->with('success','your profile has been updated');
     }

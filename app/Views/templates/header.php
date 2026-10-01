@@ -21,6 +21,11 @@ else {
                         Home
                     </a>
                 </li>
+                <li>
+                    <a href="<?= base_url('api-test') ?>">
+                        Test xAPI
+                    </a>
+                </li>
                 <?php if($is_admin == 1):?>
                 <li>
                     <a href="<?= base_url('admin-panel')?>">

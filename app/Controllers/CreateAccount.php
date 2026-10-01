@@ -12,6 +12,7 @@ class CreateAccount extends BaseController
 
         //getting information entered on the form
         $username = $this->request->getPost("username");
+        $email = $this->request->getPost("email");
         $password = $this->request->getPost("password");
 
         //simple validation
@@ -21,7 +22,7 @@ class CreateAccount extends BaseController
 
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-        $user_model->insert(["username"=> $username,"password_hash"=> $password_hash]);
+        $user_model->insert(["username"=> $username, "email" => $email,"password_hash"=> $password_hash]);
 
         return redirect()->to(base_url('login'))->with("success","account created successfully!");
     }
