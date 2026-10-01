@@ -102,6 +102,15 @@ class Log extends BaseController
         actor: $actor,
         verb: $verb,
         object: $object,
+
+        result: $score == '' ? null : [
+            'score' => [
+                'raw' => (float) $score,
+                'min' => 0,
+                'max' => 10
+            ]
+        ],
+        
         context: [
             'platform' => 'film diary crud thing',
             'extensions' => [
