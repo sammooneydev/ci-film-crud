@@ -29,6 +29,7 @@ $routes->get('logout', [Logout::class,'logout']);
 //admin routes
 $routes->get('admin-panel', [Admin::class, 'index']);
 $routes->post('admin/create-film', [Admin::class, 'createFilm']);
+$routes->post('admin/send-film-xapi', [Admin::class, 'sendFilmXAPI']);
 
 //profile page routes
 $routes->get('profile', [Profile::class, 'index']);

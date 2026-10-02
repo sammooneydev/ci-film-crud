@@ -20,7 +20,7 @@
                             </p>
                         <?php endif;?>
 
-                        <form class="login" method="post" action="<?= base_url('admin/create-film') ?>">
+                        <form id="admin-film-form" class="login" method="post" action="<?= base_url('admin/create-film') ?>">
                         <h2>Add Film to Database</h2>
                         <?= csrf_field() ?>
 
@@ -45,4 +45,6 @@
             </div>
         </body>
     <?= view('templates/footer')?>
+
+    <script src="<?= base_url('js/admin.js') ?>"></script>
 </html>
